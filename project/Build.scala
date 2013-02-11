@@ -53,22 +53,17 @@ object ProjectBuild extends Build{
 
   val publishLoc = Some(Resolver.file("local m2", new File( Path.userHome.absolutePath + "/.m2/repository" )))
 
-  mergeStrategy in assembly <<= (mergeStrategy in assembly) { (old) =>
-    {
-      case x => {
-        val oldstrat = old(x)
-        if (oldstrat == MergeStrategy.deduplicate) MergeStrategy.first
-        else oldstrat
-      }
-    }
-  }
-
   lazy val projectSettings = Project (
     "PROJECT-NAME",
     file ("PROJECT-ROOT"),
     settings = buildSettings ++ assemblySettings ++ Seq(
       resolvers := allResolvers,
       libraryDependencies ++= projectDeps,
+      mergeStrategy in assembly <<= (mergeStrategy in assembly) { old => {
+        case x =>
+          val oldstrat = old(x)
+          if (oldstrat == MergeStrategy.deduplicate) MergeStrategy.first else oldstrat
+      }},
       scalacOptions := compilerOptions,
       publishTo := publishLoc)
   ) dependsOn (scalatonProject)
