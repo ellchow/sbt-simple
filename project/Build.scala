@@ -44,6 +44,7 @@ object ProjectBuild extends Build{
     "org.scalaz" % "scalaz-core_2.10" % "7.0.0-M8",
     "org.scalaz" % "scalaz-iteratee_2.10" % "7.0.0-M8",
     "ch.qos.logback" % "logback-classic" % "1.0.9",
+    "com.typesafe" %% "scalalogging-slf4j" % "1.0.1",
     "org.specs2" %% "specs2" % "1.12.3" % "test"
   )
 
