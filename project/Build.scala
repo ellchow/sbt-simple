@@ -76,7 +76,7 @@ object ProjectBuild extends Build{
       }},
       scalacOptions := compilerOptions,
       publishTo := publishLoc)
-  ) dependsOn (scalatonProject)
+  )
 
 }
 
