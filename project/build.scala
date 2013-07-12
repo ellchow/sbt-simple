@@ -77,7 +77,7 @@ object ProjectBuild extends Build{
     "SPRAYSERVER-PROJECT-NAME",
     file ("SPRAYSERVER-PROJECT-ROOT"),
     settings = buildSettings ++ assemblySettings ++ customAssemblySettings ++ Seq(
-      libraryDependencies ++= Dependencies.common ++ Dependencies.sprayserver,
+      libraryDependencies ++= Dependencies.common ++ Dependencies.sprayServer,
       scalacOptions := compilerOptions,
       publishTo := Some(Resolver.file("local m2", new File( Path.userHome.absolutePath + "/.m2/repository" )))) ++ Revolver.settings
   )

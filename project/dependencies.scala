@@ -22,7 +22,7 @@ object Dependencies{
   )
 
   val common = Seq(
-    "org.scalaz" % "scalaz-core_2.10" % "7.0.0",
+    "org.scalaz" % "scalaz-core_2.10" % "7.0.1",
 
     // "org.scalaj" %% "scalaj-http" % "0.3.6",
     // "io.spray"            %   "spray-can"     % "1.1-M8",
@@ -37,7 +37,7 @@ object Dependencies{
     "org.specs2" %% "specs2" % "1.14" % "test"
   )
 
-  val sprayserver = Seq(
+  val sprayServer = Seq(
     "io.spray"            %   "spray-can"     % "1.2-M8",
     "io.spray"            %   "spray-routing" % "1.2-M8",
     "io.spray"            %   "spray-testkit" % "1.2-M8" % "test",
