@@ -3,3 +3,5 @@ resolvers += Resolver.url("artifactory", url("http://scalasbt.artifactoryonline.
 addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.8.3")
 
 addSbtPlugin("org.ensime" % "ensime-sbt-cmd" % "0.1.0")
+
+addSbtPlugin("io.spray" % "sbt-revolver" % "0.6.2")
