@@ -34,8 +34,6 @@ object ProjectBuild extends Build{
     "-deprecation",
     "-feature",
     "-language:_", //postfixOps
-    "-language:higherKinds",
-    "-language:implicitConversions",
     "-encoding",
     "utf8"
   )
