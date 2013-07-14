@@ -33,7 +33,7 @@ object ProjectBuild extends Build{
     // "-Xlog-implicits",
     "-deprecation",
     "-feature",
-    "-language:_", //postfixOps
+    "-language:_",
     "-encoding",
     "utf8"
   )
@@ -69,6 +69,15 @@ object ProjectBuild extends Build{
       libraryDependencies ++= Dependencies.common,
       scalacOptions := compilerOptions,
       publishTo := Some(Resolver.file("local m2", new File( Path.userHome.absolutePath + "/.m2/repository" ))))
+  )
+
+  lazy val sprayClientSettings = Project (
+    "SPRAYCLIENT-PROJECT-NAME",
+    file ("SPRAYCLIENT-PROJECT-ROOT"),
+    settings = buildSettings ++ assemblySettings ++ customAssemblySettings ++ Seq(
+      libraryDependencies ++= Dependencies.common ++ Dependencies.sprayClient,
+      scalacOptions := compilerOptions,
+      publishTo := Some(Resolver.file("local m2", new File( Path.userHome.absolutePath + "/.m2/repository" )))) ++ Revolver.settings
   )
 
   lazy val sprayServerSettings = Project (

@@ -1,7 +1,5 @@
 import sbt._
 
-
-
 object Dependencies{
   val resolvers = Seq(
     "sonatype releases"  at "http://oss.sonatype.org/content/repositories/releases",
@@ -27,8 +25,6 @@ object Dependencies{
     "org.scalaz" % "scalaz-core_2.10" % "7.0.2",
 
     // "org.scalaj" %% "scalaj-http" % "0.3.6",
-    // "io.spray"            %   "spray-can"     % "1.1-M8",
-    // "io.spray"            %   "spray-routing" % "1.1-M8",
     // "org.rogach" %% "scallop" % "0.8.1",
     // "com.github.nscala-time" %% "nscala-time" % "0.2.0"
     // RootProject(uri("git://github.com/some/project.git#master")),
@@ -43,12 +39,23 @@ object Dependencies{
     "org.specs2" %% "specs2" % "2.1" % "test"
   )
 
+  val sprayClient = Seq(
+    "io.spray" % "spray-client" % "1.2-M8",
+    "io.spray" % "spray-can" % "1.2-M8",
+    "io.spray" % "spray-http" % "1.2-M8",
+    "io.spray" % "spray-util" % "1.2-M8",
+    "io.spray" %% "spray-json" % "1.2.5",
+    "com.typesafe.akka" %%"akka-actor" % "2.2.0-RC1",
+    "com.typesafe.akka" %%"akka-testkit" % "2.2.0-RC1" % "test"
+  )
+
   val sprayServer = Seq(
-    "io.spray"            %   "spray-can"     % "1.2-M8",
-    "io.spray"            %   "spray-routing" % "1.2-M8",
-    "io.spray"            %   "spray-testkit" % "1.2-M8" % "test",
-    "com.typesafe.akka"   %%  "akka-actor"    % "2.2.0-RC1",
-    "com.typesafe.akka"   %%  "akka-testkit"  % "2.2.0-RC1" % "test"
+    "io.spray" % "spray-can" % "1.2-M8",
+    "io.spray" % "spray-routing" % "1.2-M8",
+    "io.spray"  % "spray-testkit" % "1.2-M8" % "test",
+
+    "com.typesafe.akka" %%"akka-actor" % "2.2.0-RC1",
+    "com.typesafe.akka" %%"akka-testkit" % "2.2.0-RC1" % "test"
   )
 
 
