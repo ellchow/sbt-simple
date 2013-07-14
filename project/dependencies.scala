@@ -17,12 +17,14 @@ object Dependencies{
 
     "cloudera" at "https://repository.cloudera.com/content/repositories/releases/",
 
-    "ellchow mvn-repos" at "https://raw.github.com/ellchow/mvn-repos/master/snapshots/",
+    "scalaton snapshot repo"  at "http://ellchow.github.io/scalaton/snapshots",
+    "scalaton release repo"  at "http://ellchow.github.io/scalaton/releases",
+
     "local m2 repo" at "file://" + Path.userHome.absolutePath + "/.m2/repository"
   )
 
   val common = Seq(
-    "org.scalaz" % "scalaz-core_2.10" % "7.0.1",
+    "org.scalaz" % "scalaz-core_2.10" % "7.0.2",
 
     // "org.scalaj" %% "scalaj-http" % "0.3.6",
     // "io.spray"            %   "spray-can"     % "1.1-M8",
@@ -31,10 +33,14 @@ object Dependencies{
     // "com.github.nscala-time" %% "nscala-time" % "0.2.0"
     // RootProject(uri("git://github.com/some/project.git#master")),
 
+    "scalaton" %% "util" % "0.1-SNAPSHOT",
+    "scalaton" %% "aggregate" % "0.1-SNAPSHOT",
+    "scalaton" %% "doo" % "0.1-SNAPSHOT",
+
     "ch.qos.logback" % "logback-classic" % "1.0.9",
     "com.typesafe" %% "scalalogging-slf4j" % "1.0.1",
 
-    "org.specs2" %% "specs2" % "1.14" % "test"
+    "org.specs2" %% "specs2" % "2.1" % "test"
   )
 
   val sprayServer = Seq(
