@@ -60,34 +60,46 @@ object ProjectBuild extends Build{
     }
   }
 
+  val publishLoc = Some(Resolver.file("local m2", new File( Path.userHome.absolutePath + "/.m2/repository" )))
+
   /** Projects **/
 
-  lazy val standardProjectSettings = Project (
+  lazy val standardProject = Project (
     "STANDARD-PROJECT-NAME",
     file ("STANDARD-PROJECT-ROOT"),
     settings = buildSettings ++ assemblySettings ++ customAssemblySettings ++ Seq(
       libraryDependencies ++= Dependencies.common,
       scalacOptions := compilerOptions,
-      publishTo := Some(Resolver.file("local m2", new File( Path.userHome.absolutePath + "/.m2/repository" ))))
-  )
+      publishTo := publishLoc)
+  ) dependsOn (Dependencies.scalatonUtil)
 
-  lazy val sprayClientSettings = Project (
+  lazy val sprayClientProject = Project (
     "SPRAYCLIENT-PROJECT-NAME",
     file ("SPRAYCLIENT-PROJECT-ROOT"),
     settings = buildSettings ++ assemblySettings ++ customAssemblySettings ++ Seq(
       libraryDependencies ++= Dependencies.common ++ Dependencies.sprayClient,
       scalacOptions := compilerOptions,
-      publishTo := Some(Resolver.file("local m2", new File( Path.userHome.absolutePath + "/.m2/repository" )))) ++ Revolver.settings
+      publishTo := publishLoc) ++ Revolver.settings
   )
 
-  lazy val sprayServerSettings = Project (
+  lazy val sprayServerProject = Project (
     "SPRAYSERVER-PROJECT-NAME",
     file ("SPRAYSERVER-PROJECT-ROOT"),
     settings = buildSettings ++ assemblySettings ++ customAssemblySettings ++ Seq(
       libraryDependencies ++= Dependencies.common ++ Dependencies.sprayServer,
       scalacOptions := compilerOptions,
-      publishTo := Some(Resolver.file("local m2", new File( Path.userHome.absolutePath + "/.m2/repository" )))) ++ Revolver.settings
+      publishTo := publishLoc) ++ Revolver.settings
   )
+
+  lazy val rootProject = Project(
+    "ROOT",
+    file("."),
+    settings = buildSettings ++ assemblySettings ++ customAssemblySettings ++ Seq(
+      scalacOptions := compilerOptions,
+      publishTo := publishLoc
+    )
+  ) aggregate(standardProject, sprayClientProject, sprayServerProject)
+
 
 }
 

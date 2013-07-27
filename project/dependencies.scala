@@ -13,13 +13,12 @@ object Dependencies{
 
     "spray io" at "http://repo.spray.io/",
 
-    "cloudera" at "https://repository.cloudera.com/content/repositories/releases/",
+    "cloudera" at "https://repository.cloudera.com/content/repositories/releases/"//,
 
-    "scalaton snapshot repo"  at "http://ellchow.github.io/scalaton/snapshots",
-    "scalaton release repo"  at "http://ellchow.github.io/scalaton/releases",
-
-    "local m2 repo" at "file://" + Path.userHome.absolutePath + "/.m2/repository"
+    // "local m2 repo" at "file://" + Path.userHome.absolutePath + "/.m2/repository"
   )
+
+  val scalatonUtil = ProjectRef(uri("git://github.com/ellchow/scalaton.git#master"), "util")
 
   val common = Seq(
     "org.scalaz" % "scalaz-core_2.10" % "7.0.2",
@@ -27,11 +26,6 @@ object Dependencies{
     // "org.scalaj" %% "scalaj-http" % "0.3.6",
     // "org.rogach" %% "scallop" % "0.8.1",
     // "com.github.nscala-time" %% "nscala-time" % "0.2.0"
-    // RootProject(uri("git://github.com/some/project.git#master")),
-
-    "scalaton" %% "util" % "0.1-SNAPSHOT",
-    "scalaton" %% "aggregate" % "0.1-SNAPSHOT",
-    "scalaton" %% "doo" % "0.1-SNAPSHOT",
 
     "ch.qos.logback" % "logback-classic" % "1.0.9",
     "com.typesafe" %% "scalalogging-slf4j" % "1.0.1",

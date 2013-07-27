@@ -5,6 +5,8 @@ import com.typesafe.scalalogging.slf4j.Logging
 import scalaz._
 import Scalaz._
 
+import scalaton.util.hashing._
+
 object Main extends Logging{
   def main(args: Array[String]){
     "hello world!" |> println
