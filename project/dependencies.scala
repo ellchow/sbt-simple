@@ -27,6 +27,12 @@ object Dependencies{
     // "org.rogach" %% "scallop" % "0.8.1",
     // "com.github.nscala-time" %% "nscala-time" % "0.2.0"
 
+    // "com.github.ellchow" %% "scalaton-util" % "0.1-SNAPSHOT",
+    // "com.github.ellchow" %% "scalaton-doo" % "0.1-SNAPSHOT",
+    // "com.github.ellchow" %% "scalaton-aggregate" % "0.1-SNAPSHOT",
+
+    // "commons-io" % "commons-io" % "2.1",
+
     "ch.qos.logback" % "logback-classic" % "1.0.9",
     "com.typesafe" %% "scalalogging-slf4j" % "1.0.1",
 
