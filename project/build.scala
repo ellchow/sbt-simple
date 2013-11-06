@@ -11,7 +11,7 @@ object ProjectBuild extends Build{
   /** Settings **/
   val Organization = "ORGANIZATION"
   val Version      = "0.1-SNAPSHOT"
-  val ScalaVersion = "2.10.2"
+  val ScalaVersion = "2.10.3"
 
   val buildSettings = Defaults.defaultSettings ++ Seq (
     organization := Organization,
@@ -19,7 +19,7 @@ object ProjectBuild extends Build{
     scalaVersion := ScalaVersion,
     shellPrompt  := ShellPrompt.buildShellPrompt,
     resolvers := Dependencies.resolvers
-    // unmanagedResourceDirectories in Runtime += file("resources")
+    // unmanagedResourceDirectories in Compile += file("resources")
   )
 
   val customAssemblySettings = Seq(
