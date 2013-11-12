@@ -18,10 +18,10 @@ object Dependencies{
     // "local m2 repo" at "file://" + Path.userHome.absolutePath + "/.m2/repository"
   )
 
-  val scalatonUtil = ProjectRef(uri("git://github.com/ellchow/scalaton.git#master"), "util")
+  // val scalatonUtil = ProjectRef(uri("git://github.com/ellchow/scalaton.git#master"), "util")
 
   val common = Seq(
-    "org.scalaz" % "scalaz-core_2.10" % "7.0.2",
+    "org.scalaz" % "scalaz-core_2.10" % "7.0.4",
 
     // "org.scalaj" %% "scalaj-http" % "0.3.6",
     // "org.rogach" %% "scallop" % "0.8.1",
@@ -36,7 +36,8 @@ object Dependencies{
     "ch.qos.logback" % "logback-classic" % "1.0.9",
     "com.typesafe" %% "scalalogging-slf4j" % "1.0.1",
 
-    "org.specs2" %% "specs2" % "2.1" % "test"
+    "org.specs2" %% "specs2" % "2.3.3" % "test",
+    "org.scalacheck" %% "scalacheck" % "1.10.1" % "test"
   )
 
   val sprayClient = Seq(
