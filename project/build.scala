@@ -72,7 +72,7 @@ object ProjectBuild extends Build{
       libraryDependencies ++= Dependencies.common,
       scalacOptions := compilerOptions,
       publishTo := publishLoc)
-  ) dependsOn (Dependencies.scalatonUtil)
+  )// dependsOn (Dependencies.scalatonUtil)
 
   lazy val sprayClientProject = Project (
     "SPRAYCLIENT-PROJECT-NAME",

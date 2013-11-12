@@ -1,11 +1,25 @@
-import org.specs2.mutable._
+package sbtsimple
 
-class Test extends Specification {
+import org.scalatest._
+import org.scalatest.matchers._
+import org.scalatest.prop._
 
-  "The 'Hello world' string" should {
-    "contain 11 characters" in {
-      "Hello world" must have size(11)
+import org.scalacheck._
+
+class TestSpec extends FlatSpec with Matchers with GeneratorDrivenPropertyChecks {
+  behavior of "scalacheck usage"
+
+  it should "looks like this" in {
+    forAll {
+      (a: Int, b: Int) =>
+      (a + b) should be(b + a)
     }
   }
 
+  behavior of "unit test"
+
+  it should "work simply" in {
+    assert(1 == 1)
+  }
 }
+
