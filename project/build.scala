@@ -19,6 +19,7 @@ object ProjectBuild extends Build{
     scalaVersion := ScalaVersion,
     shellPrompt  := ShellPrompt.buildShellPrompt,
     resolvers := Dependencies.resolvers
+    // unmanagedResourceDirectories in Compile += file("resources")
   )
 
   val customAssemblySettings = Seq(
