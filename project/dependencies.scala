@@ -33,6 +33,8 @@ object Dependencies{
 
     // "commons-io" % "commons-io" % "2.1",
 
+    // "org.scala-lang" %% "scala-pickling" % "0.8.0-SNAPSHOT",
+
     "ch.qos.logback" % "logback-classic" % "1.0.9",
     "com.typesafe" %% "scalalogging-slf4j" % "1.0.1",
 
