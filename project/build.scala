@@ -36,6 +36,7 @@ object ProjectBuild extends Build{
     "-feature",
     "-language:_",
     "-encoding",
+    "-optimize",
     "utf8"
   )
 
@@ -103,9 +104,3 @@ object ProjectBuild extends Build{
 
 
 }
-
-
-
-
-
-
