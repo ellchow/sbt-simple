@@ -7,7 +7,7 @@ object Dependencies{
 
     "scala-tools" at "http://scala-tools.org/repo-releases",
 
-    "typesafe" at "http://repo.typesafe.com/typesafe/releases/",
+    "typesafe releases" at "http://repo.typesafe.com/typesafe/releases",
 
     "conjars" at "http://conjars.org/repo",
 
@@ -22,6 +22,7 @@ object Dependencies{
 
   val common = Seq(
     "org.scalaz" % "scalaz-core_2.10" % "7.0.4",
+    // "org.scalaz" % "scalaz-effect_2.10" % "7.0.4",
 
     // "org.scalaj" %% "scalaj-http" % "0.3.6",
     // "org.rogach" %% "scallop" % "0.8.1",
