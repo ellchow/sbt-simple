@@ -69,9 +69,10 @@ object ProjectBuild extends Build {
   lazy val standardProject = Project (
     "STANDARD-PROJECT-NAME",
     file ("STANDARD-PROJECT-ROOT"),
-    settings = buildSettings ++ assemblySettings ++ customAssemblySettings ++ Seq(
+    settings = buildSettings ++ assemblySettings ++ customAssemblySettings ++ sbtavro.SbtAvro.avroSettings ++ Seq(
       libraryDependencies ++= Dependencies.common,
       scalacOptions := compilerOptions,
+      javaSource in sbtavro.SbtAvro.avroConfig <<= (sourceDirectory in Compile)(_ / "java"),
       publishTo := publishLoc)
   )// dependsOn (Dependencies.scalatonUtil)
 
