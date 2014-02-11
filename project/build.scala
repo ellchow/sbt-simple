@@ -7,7 +7,7 @@ import AssemblyKeys._
 import spray.revolver.RevolverPlugin.Revolver
 
 
-object ProjectBuild extends Build{
+object ProjectBuild extends Build {
   /** Settings **/
   val Organization = "ORGANIZATION"
   val Version      = "0.1-SNAPSHOT"
@@ -93,14 +93,14 @@ object ProjectBuild extends Build{
       publishTo := publishLoc) ++ Revolver.settings
   )
 
-  lazy val rootProject = Project(
+  lazy val aggregatedProject = Some(Project(
     "ROOT",
     file("."),
     settings = buildSettings ++ assemblySettings ++ customAssemblySettings ++ Seq(
       scalacOptions := compilerOptions,
       publishTo := publishLoc
     )
-  ) aggregate(standardProject, sprayClientProject, sprayServerProject)
+  ) aggregate(standardProject, sprayClientProject, sprayServerProject))
 
 
 }
