@@ -36,7 +36,7 @@ object ProjectBuild extends Build{
     "-feature",
     "-language:_",
     "-encoding",
-    "-optimize",
+    // "-optimize",
     "utf8"
   )
 
