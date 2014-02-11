@@ -37,6 +37,7 @@ object Dependencies{
     // "org.scala-lang" %% "scala-pickling" % "0.8.0-SNAPSHOT",
 
     "org.apache.avro" % "avro" % "1.6.3",
+    "com.google.protobuf" % "protobuf-java" % "2.5.0",
 
     "ch.qos.logback" % "logback-classic" % "1.0.9",
     "com.typesafe" %% "scalalogging-slf4j" % "1.0.1",

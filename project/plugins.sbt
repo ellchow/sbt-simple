@@ -9,3 +9,5 @@ addSbtPlugin("io.spray" % "sbt-revolver" % "0.7.1")
 addSbtPlugin("com.typesafe.sbt" % "sbt-pgp" % "0.8")
 
 addSbtPlugin("com.cavorite" % "sbt-avro" % "0.3.2")
+
+addSbtPlugin("com.github.gseitz" % "sbt-protobuf" % "0.3.1")
