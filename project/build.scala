@@ -11,9 +11,11 @@ object ProjectBuild extends Build {
   /** Settings **/
   val Organization = "ORGANIZATION"
   val Version      = "0.1-SNAPSHOT"
-  val ScalaVersion = "2.10.3"
+  val ScalaVersion = "2.10.4"
 
-  val buildSettings = Defaults.defaultSettings ++ Seq (
+  lazy val scalaStyleTask = taskKey[Unit]("scalaStyleTask")
+
+  val buildSettings = Defaults.defaultSettings ++ org.scalastyle.sbt.ScalastylePlugin.Settings ++ Seq (
     organization := Organization,
     version      := Version,
     scalaVersion := ScalaVersion,
@@ -69,29 +71,37 @@ object ProjectBuild extends Build {
   lazy val standardProject = Project (
     "STANDARD-PROJECT-NAME",
     file ("STANDARD-PROJECT-ROOT"),
-    settings = buildSettings ++ assemblySettings ++ customAssemblySettings ++ sbtavro.SbtAvro.avroSettings ++ sbtprotobuf.ProtobufPlugin.protobufSettings ++ Seq(
-      libraryDependencies ++= Dependencies.common,
-      scalacOptions := compilerOptions,
-      javaSource in sbtavro.SbtAvro.avroConfig <<= (sourceDirectory in Compile)(_ / "java"),
-      publishTo := publishLoc)
+    settings = buildSettings ++ assemblySettings ++ customAssemblySettings ++
+      sbtavro.SbtAvro.avroSettings ++
+      // sbtprotobuf.ProtobufPlugin.protobufSettings ++
+      Seq(
+        libraryDependencies ++= Dependencies.common,
+        scalacOptions := compilerOptions,
+        javaSource in sbtavro.SbtAvro.avroConfig <<= (sourceDirectory in Compile)(_ / "java"),
+        publishTo := publishLoc,
+        scalaStyleTask := org.scalastyle.sbt.PluginKeys.scalastyle.toTask("").value,
+        (compile in Compile) <<= (compile in Compile) dependsOn scalaStyleTask
+      )
   )// dependsOn (Dependencies.scalatonUtil)
 
   lazy val sprayClientProject = Project (
     "SPRAYCLIENT-PROJECT-NAME",
     file ("SPRAYCLIENT-PROJECT-ROOT"),
-    settings = buildSettings ++ assemblySettings ++ customAssemblySettings ++ Seq(
-      libraryDependencies ++= Dependencies.common ++ Dependencies.sprayClient,
-      scalacOptions := compilerOptions,
-      publishTo := publishLoc) ++ Revolver.settings
+    settings = buildSettings ++ assemblySettings ++ customAssemblySettings ++
+      Seq(
+        libraryDependencies ++= Dependencies.common ++ Dependencies.sprayClient,
+        scalacOptions := compilerOptions,
+        publishTo := publishLoc) ++ Revolver.settings
   )
 
   lazy val sprayServerProject = Project (
     "SPRAYSERVER-PROJECT-NAME",
     file ("SPRAYSERVER-PROJECT-ROOT"),
-    settings = buildSettings ++ assemblySettings ++ customAssemblySettings ++ Seq(
-      libraryDependencies ++= Dependencies.common ++ Dependencies.sprayServer,
-      scalacOptions := compilerOptions,
-      publishTo := publishLoc) ++ Revolver.settings
+    settings = buildSettings ++ assemblySettings ++ customAssemblySettings ++
+      Seq(
+        libraryDependencies ++= Dependencies.common ++ Dependencies.sprayServer,
+        scalacOptions := compilerOptions,
+        publishTo := publishLoc) ++ Revolver.settings
   )
 
   lazy val aggregatedProject = Some(Project(
@@ -105,3 +115,15 @@ object ProjectBuild extends Build {
 
 
 }
+/* protobuf
+rm -r /tmp/proto241 &&
+mkdir -p /tmp/proto241 &&
+cd /tmp/proto241 &&
+curl -O https://protobuf.googlecode.com/files/protobuf-2.4.1.tar.gz &&
+tar -xvzf protobuf-2.4.1.tar.gz &&
+cd protobuf-2.4.1 &&
+./configure &&
+make &&
+make check &&
+sudo make install
+ */

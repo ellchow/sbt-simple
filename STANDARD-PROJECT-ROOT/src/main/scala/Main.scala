@@ -7,6 +7,6 @@ import Scalaz._
 
 object Main extends Logging{
   def main(args: Array[String]){
-    println("hello, world!")
+    logger.info("hello, world!")
   }
 }
