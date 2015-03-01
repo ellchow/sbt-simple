@@ -1,9 +1,0 @@
-{
-    "namespace": "sampleavro",
-    "type": "record",
-    "name": "MyAvro",
-    "fields" : [
-        {"name": "number", "type": "long"},
-        {"name": "stringOrNull", "type": ["string", "null"]}
-    ]
-}

@@ -18,52 +18,24 @@ object Dependencies{
     // "local m2 repo" at "file://" + Path.userHome.absolutePath + "/.m2/repository"
   )
 
-  // val scalatonUtil = ProjectRef(uri("git://github.com/ellchow/scalaton.git#master"), "util")
+  // val gitproject = ProjectRef(uri("git://github.com/user/repo.git#master"), "projectname")
 
   val common = Seq(
-    "org.scalaz" % "scalaz-core_2.10" % "7.0.4",
-    // "org.scalaz" % "scalaz-effect_2.10" % "7.0.4",
+    "org.scalaz" %% "scalaz-core" % "7.1.0",
+    "org.scalaz" %% "scalaz-effect" % "7.1.0",
 
-    // "org.scalaj" %% "scalaj-http" % "0.3.6",
-    // "org.rogach" %% "scallop" % "0.8.1",
-    // "com.github.nscala-time" %% "nscala-time" % "0.2.0"
+    "org.rogach" %% "scallop" % "0.9.5",
+    "com.github.nscala-time" %% "nscala-time" % "1.8.0",
 
-    // "com.github.ellchow" %% "scalaton-util" % "0.1-SNAPSHOT",
-    // "com.github.ellchow" %% "scalaton-doo" % "0.1-SNAPSHOT",
-    // "com.github.ellchow" %% "scalaton-aggregate" % "0.1-SNAPSHOT",
+    "commons-io" % "commons-io" % "2.4",
 
-    // "commons-io" % "commons-io" % "2.1",
-
-    // "org.scala-lang" %% "scala-pickling" % "0.8.0-SNAPSHOT",
-
-    "org.apache.avro" % "avro" % "1.6.3",
-    "com.google.protobuf" % "protobuf-java" % "2.5.0",
+    // "org.apache.avro" % "avro" % "1.6.3",
+    // "com.google.protobuf" % "protobuf-java" % "2.5.0",
 
     "ch.qos.logback" % "logback-classic" % "1.0.9",
-    "com.typesafe" %% "scalalogging-slf4j" % "1.0.1",
+    "com.typesafe.scala-logging" %% "scala-logging" % "3.1.0",
 
-    "org.scalatest" % "scalatest_2.10" % "2.0" % "test",
-    "org.scalacheck" %% "scalacheck" % "1.10.1" % "test"
+    "org.scalatest" %% "scalatest" % "2.2.4" % "test",
+    "org.scalacheck" %% "scalacheck" % "1.11.3" % "test"
   )
-
-  val sprayClient = Seq(
-    "io.spray" % "spray-client" % "1.2-M8",
-    "io.spray" % "spray-can" % "1.2-M8",
-    "io.spray" % "spray-http" % "1.2-M8",
-    "io.spray" % "spray-util" % "1.2-M8",
-    "io.spray" %% "spray-json" % "1.2.5",
-    "com.typesafe.akka" %%"akka-actor" % "2.2.0-RC1",
-    "com.typesafe.akka" %%"akka-testkit" % "2.2.0-RC1" % "test"
-  )
-
-  val sprayServer = Seq(
-    "io.spray" % "spray-can" % "1.2-M8",
-    "io.spray" % "spray-routing" % "1.2-M8",
-    "io.spray"  % "spray-testkit" % "1.2-M8" % "test",
-
-    "com.typesafe.akka" %%"akka-actor" % "2.2.0-RC1",
-    "com.typesafe.akka" %%"akka-testkit" % "2.2.0-RC1" % "test"
-  )
-
-
 }
