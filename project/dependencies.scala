@@ -23,6 +23,8 @@ object Dependencies{
   val common = Seq(
     "org.scalaz" %% "scalaz-core" % "7.1.0",
     "org.scalaz" %% "scalaz-effect" % "7.1.0",
+    "org.scalaz" %% "scalaz-concurrent" % "7.1.0",
+    "org.scala-stm" %% "scala-stm" % "0.7",
 
     "org.rogach" %% "scallop" % "0.9.5",
     "com.github.nscala-time" %% "nscala-time" % "1.8.0",
