@@ -9,30 +9,11 @@ object Dependencies{
 
     "typesafe releases" at "http://repo.typesafe.com/typesafe/releases",
 
-    "conjars" at "http://conjars.org/repo",
-
-    "spray io" at "http://repo.spray.io/",
-
-    "cloudera" at "https://repository.cloudera.com/content/repositories/releases/"//,
-
-    // "local m2 repo" at "file://" + Path.userHome.absolutePath + "/.m2/repository"
+    "conjars" at "http://conjars.org/repo"
   )
 
-  // val gitproject = ProjectRef(uri("git://github.com/user/repo.git#master"), "projectname")
-
   val common = Seq(
-    "org.scalaz" %% "scalaz-core" % "7.1.0",
-    "org.scalaz" %% "scalaz-effect" % "7.1.0",
-    "org.scalaz" %% "scalaz-concurrent" % "7.1.0",
-    "org.scala-stm" %% "scala-stm" % "0.7",
-
     "org.rogach" %% "scallop" % "0.9.5",
-    "com.github.nscala-time" %% "nscala-time" % "1.8.0",
-
-    "commons-io" % "commons-io" % "2.4",
-
-    // "org.apache.avro" % "avro" % "1.6.3",
-    // "com.google.protobuf" % "protobuf-java" % "2.5.0",
 
     "ch.qos.logback" % "logback-classic" % "1.0.9",
     "com.typesafe.scala-logging" %% "scala-logging" % "3.1.0",

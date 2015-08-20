@@ -1,9 +1,6 @@
 import sbt._
 import Keys._
 
-import sbtassembly.Plugin._
-import AssemblyKeys._
-
 object ProjectBuild extends Build {
   /** Settings **/
   val Organization = "ORGANIZATION"
@@ -18,22 +15,11 @@ object ProjectBuild extends Build {
     scalaVersion := ScalaVersion,
     shellPrompt  := ShellPrompt.buildShellPrompt,
     resolvers := Dependencies.resolvers
-    // unmanagedResourceDirectories in Compile += file("resources")
-  )
-
-  val customAssemblySettings = Seq(
-    mergeStrategy in assembly <<= (mergeStrategy in assembly) { old => {
-      case x =>
-        val oldstrat = old(x)
-        if (oldstrat == MergeStrategy.deduplicate) MergeStrategy.first else oldstrat
-    }}
   )
 
   val compilerOptions = Seq(
-    // "-Xlog-implicits",
     "-deprecation",
     "-feature",
-    // "-language:_",
     "-encoding",
     "utf8"
   )
@@ -60,24 +46,18 @@ object ProjectBuild extends Build {
     }
   }
 
-  val publishLoc = Some(Resolver.file("local m2", new File( Path.userHome.absolutePath + "/.m2/repository" )))
 
   /** Projects **/
-
   lazy val standardProject = Project (
     "STANDARD-PROJECT-NAME",
     file ("STANDARD-PROJECT-ROOT"),
-    settings = buildSettings ++ assemblySettings ++ customAssemblySettings ++
-      // sbtavro.SbtAvro.avroSettings ++
-      // sbtprotobuf.ProtobufPlugin.protobufSettings ++
+    settings = buildSettings ++
       Seq(
         libraryDependencies ++= Dependencies.common,
         scalacOptions := compilerOptions,
-        // javaSource in sbtavro.SbtAvro.avroConfig <<= (sourceDirectory in Compile)(_ / "java"),
-        publishTo := publishLoc,
         scalaStyleTask := org.scalastyle.sbt.PluginKeys.scalastyle.toTask("").value,
         (compile in Compile) <<= (compile in Compile) dependsOn scalaStyleTask
       )
-  )// dependsOn ()
+  )
 
 }
