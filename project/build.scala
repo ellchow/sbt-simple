@@ -5,7 +5,7 @@ object ProjectBuild extends Build {
   /** Settings **/
   val Organization = "ORGANIZATION"
   val Version      = "0.1-SNAPSHOT"
-  val ScalaVersion = "2.11.5"
+  val ScalaVersion = "2.11.7"
 
   lazy val scalaStyleTask = taskKey[Unit]("scalaStyleTask")
 
